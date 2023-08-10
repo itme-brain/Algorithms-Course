@@ -58,7 +58,7 @@ export default class DoublyLinkedList<T> {
   }
 
   append(item: T): void {
-    this, length++;
+    this.length++;
     const node = { value: item } as Node<T>;
 
     if (!this.tail) {
@@ -111,11 +111,11 @@ export default class DoublyLinkedList<T> {
     }
 
     if (node.prev) {
-      node.prev = node.next;
+      node.prev.next = node.next;
     }
 
     if (node.next) {
-      node.next = node.prev;
+      node.next.prev = node.prev;
     }
 
     if (node === this.head) {
